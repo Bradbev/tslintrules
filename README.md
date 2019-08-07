@@ -1,2 +1,2 @@
 # tslintrules
-Custom TSLint rules.
+Custom TSLint rules..
