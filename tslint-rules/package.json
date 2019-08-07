@@ -1,0 +1,6 @@
+{
+    "name": "my-tslint-rules",
+    "version": "0.0.0",
+    "license": "MIT",
+    "main": "tslint.json"
+}
