@@ -2,5 +2,12 @@
     "name": "my-tslint-rules",
     "version": "0.0.0",
     "license": "MIT",
-    "main": "tslint.json"
+    "main": "tslint.json",
+    "dependencies": {
+        "@types/minimatch": "^3.0.3",
+        "@types/node": "^12.7.1",
+        "minimatch": "^3.0.4",
+        "tslint": "^5.18.0",
+        "typescript": "^3.5.3"
+    }
 }
