@@ -39,7 +39,7 @@ function renameIdentifier(
   node: Identifier,
   replacements: any
 ): void {
-  if (replacements[node.text]) {
+  if (replacements.hasOwnProperty(node.text)) {
     const fix = new Replacement(
       node.getStart(),
       node.getWidth(),
