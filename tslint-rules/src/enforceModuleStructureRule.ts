@@ -11,21 +11,19 @@
  *  Walk upward until *.module.ts or angular.json is found
  *  - *.module.ts defines the upper depth that may prefix an import
  *  - angular.json means an error happened
- */
-
-/* 
-* enforceModuleImportsRule is a rule that requires all non-relative imports to reference
-* files that are siblings of a *.module.ts file.
-* eg, given the following structure
-* ./foo/foo.module.ts
-* ./foo/bar.component.ts
-* ./foo/baz/baz.service.ts
-* it is permitted to 
-import { FooModule } from 'foo/foo.module'
-import { BarComponent } from 'foo/bar.component'
-* But it will not be permitted to import baz, ieg
-import { BazService } from 'foo/baz/baz.service' // error
-* This rule prevents clients from importing private files from a module
+ * 
+ * The second half of enforceModuleStructureRule relates to external imports and 
+ * requires all non-relative imports to reference files that are siblings of a *.module.ts file.
+ * eg, given the following structure
+ * ./foo/foo.module.ts
+ * ./foo/bar.component.ts
+ * ./foo/baz/baz.service.ts
+ * it is permitted to 
+ import { FooModule } from 'foo/foo.module'
+ import { BarComponent } from 'foo/bar.component'
+ * But it will not be permitted to import baz, ieg
+ import { BazService } from 'foo/baz/baz.service' // error
+ * This rule prevents clients from importing private files from a module
 */
 
 import {
