@@ -84,6 +84,7 @@ function validateNamedImports(
   context: WalkContext,
   node: ImportDeclaration
 ): void {
+  console.log(node.getText());
   const dir = path.dirname(context.sourceFile.fileName);
   const moduleDir = findModuleDir(dir);
   node.forEachChild(n => {
@@ -117,6 +118,7 @@ function validateNamedImports(
 function walk(context: WalkContext): void {
   const { sourceFile } = context;
   const callback = (node: Node): void => {
+    console.log(node.getText());
     if (isImportDeclaration(node)) {
       validateNamedImports(context, node);
     }

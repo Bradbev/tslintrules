@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "license": "MIT",
     "main": "tslint.json",
+    "scripts": {
+        "build": "tsc"
+    },
     "dependencies": {
         "@types/minimatch": "^3.0.3",
         "@types/node": "^12.7.1",
