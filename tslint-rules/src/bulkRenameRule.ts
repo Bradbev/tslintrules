@@ -35,7 +35,7 @@ export class Rule extends AbstractRule {
 }
 
 function renameIdentifier(
-  context: WalkContext,
+  context: WalkContext<any>,
   node: Identifier,
   replacements: any
 ): void {
@@ -53,7 +53,7 @@ function renameIdentifier(
   }
 }
 
-function walk(context: WalkContext): void {
+function walk(context: WalkContext<any>): void {
   const { sourceFile, options } = context;
   const callback = (node: Node): void => {
     if (isIdentifier(node)) {

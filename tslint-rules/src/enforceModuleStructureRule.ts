@@ -79,10 +79,9 @@ function isEnforcedPath(p: string): boolean {
 }
 
 function validateNamedImports(
-  context: WalkContext,
+  context: WalkContext<any>,
   node: ImportDeclaration
 ): void {
-  console.log(node.getText());
   const dir = path.dirname(context.sourceFile.fileName);
   const moduleDir = findModuleDir(dir);
   node.forEachChild(n => {
@@ -96,10 +95,8 @@ function validateNamedImports(
           );
         }
       }
-      console.log(n.text, moduleDir);
       if (isEnforcedPath(n.text)) {
         const realFile = findTsConfig(dir).resolveImportToFullPath(n.text);
-        console.log('ts', realFile);
         if (!dirContainsModule(path.dirname(realFile))) {
           context.addFailureAtNode(
             node,
@@ -113,10 +110,9 @@ function validateNamedImports(
   });
 }
 
-function walk(context: WalkContext): void {
+function walk(context: WalkContext<any>): void {
   const { sourceFile } = context;
   const callback = (node: Node): void => {
-    console.log(node.getText());
     if (isImportDeclaration(node)) {
       validateNamedImports(context, node);
     }
